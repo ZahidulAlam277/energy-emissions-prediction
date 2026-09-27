@@ -1,7 +1,7 @@
 # Predicting Greenhouse Gas Emissions from Energy Consumption Data
 
 A regression analysis project on global energy and emissions data (1900–2021),
-built to demonstrate a complete, honest data science workflow — including a
+built to demonstrate a complete, honest data science workflow including a
 real methodological pitfall (data leakage) that was found, diagnosed, and
 fixed rather than hidden.
 
@@ -21,7 +21,7 @@ fixed rather than hidden.
 This project asks a simple question: **can national greenhouse gas (GHG)
 emissions be predicted from energy-consumption and economic indicators?**
 
-The answer turned out to be more interesting than expected — not because of
+The answer turned out to be more interesting than expected not because of
 a high accuracy score, but because of *why* the first model's accuracy score
 was misleadingly high, and what a corrected, honest model reveals instead.
 
@@ -61,7 +61,7 @@ one — it's a **tautology**. `fossil_fuel_consumption` and related features
 are near-identities of `greenhouse_gas_emissions`, because GHG emissions
 *are* mechanically derived from fossil fuel combustion volumes. Feeding a
 model these features is close to predicting a quantity from a rescaled
-version of itself — a classic case of **data leakage**.
+version of itself a classic case of **data leakage**.
 
 A second issue compounded this: the data is **country × year panel data**,
 but the original train/test split was a random row split. That lets the same
@@ -73,11 +73,11 @@ the apparent generalization performance.
   independent drivers: `population`, `gdp`, `energy_per_capita`,
   `fossil_dependency_ratio`, `renewable_ratio`.
 - Used `GroupShuffleSplit` keyed on `country`, so entire countries are held
-  out for testing — a fair test of generalization to *unseen* countries.
+  out for testing a fair test of generalization to *unseen* countries.
 
 > **Test R² = 0.2558, RMSE = 328.2**
 
-The honest score is much lower — and that is the correct, defensible result.
+The honest score is much lower and that is the correct, defensible result.
 It shows that once the accounting shortcut is removed, cross-country
 economic and demographic variables alone only modestly explain absolute
 national emissions.
