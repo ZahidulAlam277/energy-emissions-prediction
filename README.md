@@ -123,8 +123,8 @@ The notebook produces the following comparison figures (all in `/images`):
 ## How to Run
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/ZahidulAlam277/energy-emissions-prediction.git
+cd energy-emissions-prediction
 pip install -r requirements.txt
-jupyter notebook energy_emissions_analysis.ipynb
+jupyter notebook Energy_Emissions_Analysis.ipynb
 
